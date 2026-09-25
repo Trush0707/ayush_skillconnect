@@ -7,43 +7,41 @@ import {
   ShieldCheck,
   CheckCircle2,
   Activity,
-  Layers,
   FileCheck,
   BarChart3,
   Award,
   ChevronRight,
   Sparkles,
-  HelpCircle,
 } from 'lucide-react'
 
 // MOCK DATA — for screenshot purposes only, will be replaced with real Supabase calls per Techspec.md/AppFlow.md in a later pass.
 const MOCK_STATS = [
   {
-    id: 'students-assessed',
-    value: '14,820+',
-    label: 'AYUSH Scholars Assessed',
-    subtext: 'Across AIIA & partner institutions',
+    id: 'pilot-cohort',
+    value: '0–50',
+    label: 'Pilot Cohort',
+    subtext: 'Designed for initial pilot cohort',
     icon: GraduationCap,
   },
   {
-    id: 'clinical-openings',
-    value: '430+',
-    label: 'Verified Clinical Openings',
-    subtext: 'Hospitals, wellness centres & R&D labs',
+    id: 'pilot-placements',
+    value: '0–5',
+    label: 'Pilot Placements',
+    subtext: 'Target initial clinical postings',
     icon: Briefcase,
   },
   {
-    id: 'taxonomy-domains',
-    value: '12 Domains',
-    label: 'NCISM Competency Framework',
-    subtext: 'Mapped to PO1–PO8 clinical outcomes',
-    icon: Layers,
+    id: 'pilot-institution',
+    value: '1',
+    label: 'Pilot Host Institution',
+    subtext: 'Designed for a future AIIA pilot',
+    icon: Building2,
   },
   {
     id: 'match-accuracy',
-    value: '94.2%',
-    label: 'Explainable Match Precision',
-    subtext: 'Deterministic transparent scoring',
+    value: '84%',
+    label: 'Avg Skill Match',
+    subtext: 'Deterministic match baseline',
     icon: Activity,
   },
 ]
@@ -59,13 +57,12 @@ const MOCK_CORE_FEATURES = [
     points: [
       'Zero unverified self-assessment entries',
       'NCISM Program Outcomes (PO) mapping',
-      'Tamper-evident verifiable skill scores',
     ],
   },
   {
     title: 'Explainable Deterministic Matching',
     description:
-      'No black-box ML or opaque scoring. Placement compatibility is computed using an auditable formula with published weights and human-readable reasoning strings.',
+      'No black-box ML or opaque scoring. Placement compatibility is designed to be evaluated using an auditable formula with published weights and human-readable reasoning strings.',
     badge: 'SIH26044 Compliance',
     icon: FileCheck,
     points: [
@@ -82,18 +79,18 @@ const MOCK_CORE_FEATURES = [
     icon: Sparkles,
     points: [
       'Dynamic question tree per AYUSH discipline',
-      'Real-time skill domain score aggregation',
+      'Designed to show skill domain score aggregation',
       'Automatic Level 1 Theory-verified credentialing',
     ],
   },
   {
     title: 'Institutional Cohort Analytics',
     description:
-      'AIIA academic leadership and faculty gain granular visibility into batch-wide competency gaps, clinical procedure readiness, and curriculum alignment metrics.',
-    badge: 'AIIA Leadership View',
+      'Designed for institutional leadership and faculty to gain granular visibility into batch-wide competency gaps, clinical procedure readiness, and curriculum alignment metrics in a future AIIA pilot.',
+    badge: 'Institution Leadership View',
     icon: BarChart3,
     points: [
-      'Live domain-wise competency distributions',
+      'Illustrative domain-wise competency distributions',
       'Intervention identification before placement drives',
       'Direct aggregate queries over student profiles',
     ],
@@ -105,7 +102,7 @@ const MOCK_RECENT_OPPORTUNITIES = [
   {
     id: 'opp-1',
     role: 'Clinical Panchakarma Physician',
-    org: 'National Institute of Ayurveda Hospital',
+    org: 'Sample Wellness Clinic (Demo Posting)',
     location: 'New Delhi / Jaipur',
     type: 'Full-Time Internship',
     requiredSkills: ['Panchakarma Procedure Competence', 'Ashtavidha Pariksha'],
@@ -114,7 +111,7 @@ const MOCK_RECENT_OPPORTUNITIES = [
   {
     id: 'opp-2',
     role: 'Ayurvedic Clinical Research Associate',
-    org: 'Patandjali Yogpeeth Research Foundation',
+    org: 'Sample Research Institute (Demo Posting)',
     location: 'Haridwar (Hybrid)',
     type: 'Research Fellow',
     requiredSkills: ['Dravyaguna Pharmacology', 'Digital IT Hygiene'],
@@ -135,7 +132,7 @@ export default function LandingPage() {
             {/* National Pilot Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-[#1B365D] text-xs font-semibold mb-6">
               <span className="w-2 h-2 rounded-full bg-[#1B365D] animate-pulse" />
-              <span>Ministry of AYUSH • SIH26044 National Initiative • Pilot at AIIA New Delhi</span>
+              <span>SIH26044 Hackathon Prototype • Team CodeMorph • Proposed for Future AIIA Pilot</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#1B365D] leading-[1.12]">
@@ -239,7 +236,7 @@ export default function LandingPage() {
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="text-xl font-bold text-[#1B365D]">Institution Admin</h3>
                   <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700">
-                    AIIA Leadership
+                    Institution Leadership
                   </span>
                 </div>
                 <p className="text-xs sm:text-sm text-stone-600 mb-6 leading-relaxed">
@@ -255,7 +252,7 @@ export default function LandingPage() {
                 </Link>
                 <div className="mt-3 text-center">
                   <span className="text-xs text-stone-500">
-                    AIIA batch analytics & NCISM outcomes
+                    Designed for a future AIIA pilot & NCISM outcomes
                   </span>
                 </div>
               </div>
@@ -302,8 +299,7 @@ export default function LandingPage() {
             Built Around Verification, Explainability & Institutional Impact
           </p>
           <p className="mt-3 text-sm text-stone-600">
-            Adhering strictly to the NCISM competency guidelines, deterministic evaluation formulas,
-            and Zero-Secret RLS architecture.
+            Adhering strictly to the NCISM competency guidelines and deterministic evaluation formulas.
           </p>
         </div>
 

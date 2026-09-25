@@ -6,27 +6,20 @@ import {
   ArrowLeft,
   ArrowRight,
   ShieldCheck,
-  Award,
   CheckCircle2,
-  AlertCircle,
-  HelpCircle,
-  Briefcase,
   GraduationCap,
   Sparkles,
-  BarChart3,
-  ChevronRight,
-  ExternalLink,
 } from 'lucide-react'
 
 // MOCK DATA — for screenshot purposes only, will be replaced with real Supabase calls per Techspec.md/AppFlow.md in a later pass.
 const MOCK_STUDENT_PROFILE = {
-  id: 'stu-aiia-2024-88',
-  name: 'Aarav Sharma',
+  id: 'stu-demo-2024-88',
+  name: 'Aarav Sharma (Demo Profile)',
   discipline: 'Ayurveda (BAMS)',
-  institution: 'All India Institute of Ayurveda (AIIA), New Delhi',
-  enrollmentNo: 'AIIA/BAMS/2022/042',
+  institution: 'Sample Host Institution (Illustrative Demo)',
+  enrollmentNo: 'DEMO/BAMS/2022/042',
   semester: '7th Semester',
-  overallRank: 'Top 5% in Clinical Procedures',
+  overallRank: 'Illustrative Cohort Evaluation',
   verifiedTiersCount: {
     level3: 3, // Institution-verified
     level2: 4, // Observed
@@ -56,7 +49,7 @@ const MOCK_SKILL_DOMAINS: SkillDomain[] = [
     evidenceTier: 3,
     tierLabel: 'Level 3 — Institution-verified',
     tierBadgeColor: 'bg-[#1B365D] text-white border-sky-400',
-    verifiedBy: 'Signed by HOD Kayachikitsa (AIIA)',
+    verifiedBy: 'Signed by HOD Kayachikitsa (Sample Clinical Dept)',
     ncismPO: 'PO1, PO3',
     clinicalNote: 'Comprehensive 8-fold diagnostic examination with precision case documentation.',
   },
@@ -67,7 +60,7 @@ const MOCK_SKILL_DOMAINS: SkillDomain[] = [
     evidenceTier: 3,
     tierLabel: 'Level 3 — Institution-verified',
     tierBadgeColor: 'bg-[#1B365D] text-white border-sky-400',
-    verifiedBy: 'AIIA Panchakarma Ward Certified',
+    verifiedBy: 'Sample Panchakarma Ward Certified',
     ncismPO: 'PO2, PO4',
     clinicalNote: 'Certified independent administration of Sneha Basti, Virechana & Shirodhara.',
   },
@@ -111,7 +104,7 @@ const MOCK_SKILL_DOMAINS: SkillDomain[] = [
     evidenceTier: 2,
     tierLabel: 'Level 2 — Observed',
     tierBadgeColor: 'bg-indigo-100 text-indigo-900 border-indigo-300',
-    verifiedBy: 'AIIA Minor OT Procedural Signoff',
+    verifiedBy: 'Sample Minor OT Procedural Signoff',
     ncismPO: 'PO4',
     clinicalNote: 'Assisted in Ksharasutra ligation for Bhagandara (fistula-in-ano).',
   },
@@ -188,7 +181,7 @@ const MOCK_MATCHED_OPPORTUNITIES = [
   {
     id: 'opp-101',
     role: 'Resident Clinical Panchakarma Specialist',
-    organization: 'National Institute of Ayurveda Hospital',
+    organization: 'Sample Wellness Clinic (Demo Posting)',
     location: 'New Delhi / Jaipur',
     type: 'Clinical Residency',
     matchScore: 91,
@@ -196,13 +189,13 @@ const MOCK_MATCHED_OPPORTUNITIES = [
       'Strong Fit: Panchakarma Procedure Competence (92% vs 75% required)',
       'Strong Fit: Ashtavidha Pariksha & Case-Taking (88% vs 70% required)',
       'High Credibility: Level 3 Institution-verified tier multiplier applied (1.0x)',
-      'Eligibility Gate Passed: BAMS Degree & AIIA affiliation matches criteria',
+      'Eligibility Gate Passed: BAMS Degree & candidate criteria matched',
     ],
   },
   {
     id: 'opp-102',
     role: 'Junior Clinical Research Fellow (Ayurvedic Formulations)',
-    organization: 'Patandjali Yogpeeth Research Foundation',
+    organization: 'Sample Research Institute (Demo Posting)',
     location: 'Haridwar (Hybrid)',
     type: 'Research Fellowship',
     matchScore: 78,
@@ -329,7 +322,7 @@ export default function StudentProfilePage() {
             </span>
             Unlike generic resume portals, every skill rating below is attached to an explicit
             verifiable evidence tier. Raw diagnostic quiz results automatically award Level 1;
-            Level 2 and Level 3 require verified faculty observation and AIIA departmental signoff.
+            Level 2 and Level 3 require verified faculty observation and institutional departmental signoff.
           </div>
         </div>
 
@@ -507,7 +500,7 @@ export default function StudentProfilePage() {
                 </div>
 
                 <div className="mt-5 pt-3 border-t border-stone-200 flex items-center justify-between">
-                  <span className="text-xs text-stone-500">Gated by Student RLS Policy</span>
+                  <span className="text-xs text-stone-500">Sample Opportunity Match</span>
                   <button
                     type="button"
                     onClick={() =>

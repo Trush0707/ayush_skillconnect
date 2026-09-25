@@ -2,22 +2,18 @@ import Link from 'next/link'
 import {
   ArrowLeft,
   Building2,
-  BarChart3,
-  Users,
-  ShieldCheck,
-  TrendingUp,
   Download,
   Filter,
 } from 'lucide-react'
 
 // MOCK DATA — for screenshot purposes only, will be replaced with real Supabase calls per Techspec.md/AppFlow.md in a later pass.
 const MOCK_COHORT_SUMMARY = {
-  institution: 'All India Institute of Ayurveda (AIIA), New Delhi',
-  batch: 'BAMS Batch 2022–2027 (7th Semester)',
-  totalStudents: 142,
-  assessedStudents: 138,
+  institution: 'Proposed Host Institution (Illustrative Pilot View)',
+  batch: 'Sample BAMS Cohort (Illustrative Demo)',
+  totalStudents: 48,
+  assessedStudents: 42,
   averageCompetency: '76.4%',
-  placementReadyPercentage: '81.2%',
+  placementReadyPercentage: '84.0%',
 }
 
 // MOCK DATA — for screenshot purposes only, will be replaced with real Supabase calls per Techspec.md/AppFlow.md in a later pass.
@@ -47,7 +43,7 @@ export default function AdminDashboardPage() {
 
           <div className="flex items-center gap-2">
             <span className="text-xs font-bold uppercase tracking-wider bg-sky-100 text-[#1B365D] px-2.5 py-1 rounded-md border border-sky-200">
-              Institution Admin Portal (AIIA Pilot)
+              Institution Admin Portal (Designed for Future Pilot)
             </span>
           </div>
         </div>
@@ -94,14 +90,14 @@ export default function AdminDashboardPage() {
               <span className="text-2xl font-black text-[#1B365D]">
                 {MOCK_COHORT_SUMMARY.totalStudents}
               </span>
-              <span className="text-[11px] text-stone-400 block mt-0.5">AIIA Registered</span>
+              <span className="text-[11px] text-stone-400 block mt-0.5">Sample Pilot Cohort (0–50)</span>
             </div>
             <div className="bg-[#FFFCF6] border border-stone-200 rounded-xl p-4">
               <span className="text-xs text-stone-500 block">Assessed with Evidence</span>
               <span className="text-2xl font-black text-[#1B365D]">
                 {MOCK_COHORT_SUMMARY.assessedStudents}
               </span>
-              <span className="text-[11px] text-stone-400 block mt-0.5">97.1% Completion</span>
+              <span className="text-[11px] text-stone-400 block mt-0.5">Illustrative Sample</span>
             </div>
             <div className="bg-[#FFFCF6] border border-stone-200 rounded-xl p-4">
               <span className="text-xs text-stone-500 block">Cohort Mean Score</span>
@@ -128,7 +124,7 @@ export default function AdminDashboardPage() {
                 Curriculum & Clinical Competency Analysis
               </h2>
               <p className="text-xs text-stone-500 mt-0.5">
-                Aggregate average score per NCISM domain across all assessed AIIA students
+                Aggregate average score per NCISM domain (illustrative cohort metrics designed for a future AIIA pilot)
               </p>
             </div>
           </div>

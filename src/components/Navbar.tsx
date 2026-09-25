@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { GraduationCap, Briefcase, Building2, Compass, ShieldCheck } from 'lucide-react'
+import { GraduationCap, Briefcase, Building2, ShieldCheck } from 'lucide-react'
 
 // MOCK DATA — for screenshot purposes only, will be replaced with real Supabase calls per Techspec.md/AppFlow.md in a later pass.
 
@@ -11,23 +11,17 @@ export default function Navbar() {
 
   return (
     <header className="w-full bg-[#FFFCF6] border-b border-stone-200 sticky top-0 z-50 shadow-xs">
-      {/* Subtle GoI Tricolor Top Accent Strip per design.md (saffron / white / navy) */}
-      <div className="w-full h-1 flex">
-        <div className="w-1/3 bg-[#FF9933]" />
-        <div className="w-1/3 bg-white" />
-        <div className="w-1/3 bg-[#1B365D]" />
+      {/* Disclaimer Banner per Item 10 */}
+      <div className="w-full bg-amber-100 border-b border-amber-300 text-amber-950 text-xs py-1.5 px-4 text-center font-bold tracking-wide">
+        Hackathon prototype for SIH26044 — illustrative data, not a live operational system.
       </div>
 
-      {/* GIGW Official Accessibility & Language Sub-bar (Language A per design.md) */}
+      {/* Prototype Sub-bar */}
       <div className="bg-stone-100 text-stone-600 text-xs border-b border-stone-200 px-4 py-1">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-3">
-            <span className="font-medium text-stone-700 tracking-wide">
-              GOVERNMENT OF INDIA • MINISTRY OF AYUSH
-            </span>
-            <span className="text-stone-300">|</span>
-            <span className="hidden sm:inline text-stone-500">
-              All India Institute of Ayurveda (AIIA) Pilot
+            <span className="font-semibold text-stone-800 tracking-wide">
+              SIH26044 Hackathon Prototype • Team CodeMorph
             </span>
           </div>
 

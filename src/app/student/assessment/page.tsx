@@ -6,13 +6,10 @@ import {
   ArrowLeft,
   ArrowRight,
   ShieldCheck,
-  CheckCircle2,
-  HelpCircle,
   Clock,
   Sparkles,
   BookOpen,
-  Award,
-  Layers,
+  HelpCircle,
 } from 'lucide-react'
 
 // MOCK DATA — for screenshot purposes only, will be replaced with real Supabase calls per Techspec.md/AppFlow.md in a later pass.
@@ -26,7 +23,7 @@ const MOCK_QUESTION_DATA = {
   progressPercentage: 33,
   timeRemaining: '18:45',
   caseVignette:
-    'A 42-year-old patient presents at the AIIA General OPD with chronic Sandhigata Vata (osteoarthritis) of bilateral knee joints. The patient exhibits aggravated Vata-Kapha lakshanas, restricted joint flexion, and mild peri-articular crepitus. Upon Ashtavidha Pariksha (eight-fold diagnostic examination), the Nadi reveals Mandagati with intermittent Tikshna Sparsha, and Jihva exhibits moderate Sama condition.',
+    'A 42-year-old patient presents at an Ayurvedic General OPD with chronic Sandhigata Vata (osteoarthritis) of bilateral knee joints. The patient exhibits aggravated Vata-Kapha lakshanas, restricted joint flexion, and mild peri-articular crepitus. Upon Ashtavidha Pariksha (eight-fold diagnostic examination), the Nadi reveals Mandagati with intermittent Tikshna Sparsha, and Jihva exhibits moderate Sama condition.',
   questionText:
     'Based on this Ashtavidha diagnostic presentation and dosha assessment, which preparatory Purvakarma protocol is clinically indicated before administering tailored Sneha Basti?',
   options: [
@@ -140,7 +137,7 @@ export default function AssessmentPage() {
             <div className="flex items-center gap-2">
               <BookOpen className="w-4 h-4 text-sky-200" />
               <span className="text-xs font-bold uppercase tracking-wider text-sky-100">
-                AIIA Clinical Case Simulation
+                Clinical Case Simulation (Illustrative)
               </span>
             </div>
             <div className="flex items-center gap-1.5 text-xs text-sky-200">
@@ -155,7 +152,7 @@ export default function AssessmentPage() {
               Clinical Vignette:
             </p>
             <p className="text-sm text-stone-800 leading-relaxed font-serif">
-              "{question.caseVignette}"
+              &ldquo;{question.caseVignette}&rdquo;
             </p>
           </div>
 

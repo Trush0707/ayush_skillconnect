@@ -10,12 +10,6 @@ import {
   Trash2,
   ShieldCheck,
   CheckCircle2,
-  Building2,
-  MapPin,
-  FileText,
-  Sliders,
-  Sparkles,
-  Info,
 } from 'lucide-react'
 
 // MOCK DATA — for screenshot purposes only, will be replaced with real Supabase calls per Techspec.md/AppFlow.md in a later pass.
@@ -45,8 +39,8 @@ interface RequiredSkillRow {
 export default function NewOpportunityPage() {
   const [title, setTitle] = useState('Senior Resident Clinical Panchakarma Specialist')
   const [oppType, setOppType] = useState<'job' | 'internship'>('job')
-  const [organization, setOrganization] = useState('AIIA Teaching Hospital & Research Wing')
-  const [location, setLocation] = useState('New Delhi (Central Hospital Campus)')
+  const [organization, setOrganization] = useState('Sample Wellness Clinic (Demo Posting)')
+  const [location, setLocation] = useState('New Delhi (Demo Campus)')
   const [description, setDescription] = useState(
     'Looking for a certified BAMS graduate with verified clinical procedure competency in Panchakarma therapies (Janu Basti, Virechana, Shirodhara) and Ashtavidha Pariksha case documentation. Responsible for managing inpatient therapy wards and monitoring dosha progression.'
   )
@@ -106,7 +100,7 @@ export default function NewOpportunityPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setSubmittedMessage(
-      'Opportunity specification validated! Stored in mock state. In Phase 2, this triggers real RLS-protected insert into opportunities & opportunity_required_skills tables.'
+      'Opportunity specification validated! Stored in mock state for hackathon demonstration.'
     )
   }
 
@@ -151,7 +145,7 @@ export default function NewOpportunityPage() {
               </h1>
               <p className="text-xs sm:text-sm text-stone-600 mt-1">
                 Define taxonomy-grounded competency thresholds and evidence tier criteria to match
-                pre-verified AIIA scholars.
+                verified student candidates.
               </p>
             </div>
           </div>
@@ -215,7 +209,7 @@ export default function NewOpportunityPage() {
                   type="text"
                   value={organization}
                   onChange={(e) => setOrganization(e.target.value)}
-                  placeholder="e.g. National Institute of Ayurveda Hospital"
+                  placeholder="e.g. Sample Wellness Clinic (Demo Posting)"
                   className="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B365D] bg-[#FFFCF6]"
                   required
                 />

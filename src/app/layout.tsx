@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'AYUSH SkillConnect | Ministry of AYUSH & AIIA Pilot',
+  title: 'AYUSH SkillConnect | SIH26044 Hackathon Prototype',
   description:
-    'Evidence-backed closed-loop skill mapping and explainable placement platform for AYUSH academic institutions.',
+    'Evidence-backed closed-loop skill mapping and explainable placement prototype for AYUSH academic institutions (SIH26044).',
 }
 
 export default function RootLayout({

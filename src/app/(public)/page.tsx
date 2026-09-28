@@ -183,18 +183,19 @@ export default function LandingPage() {
                   placed with explainable match scores.
                 </p>
                 <Link
-                  href="/student/assessment"
+                  href="/signup/student"
+                  id="landing-student-signup-btn"
                   className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#1B365D] text-white font-semibold text-sm hover:bg-[#152a48] transition-colors shadow-xs"
                 >
-                  <span>Launch Assessment</span>
+                  <span>Register as Student</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <div className="mt-3 text-center">
                   <Link
-                    href="/student/profile"
+                    href="/login"
                     className="text-xs font-medium text-[#1B365D] hover:underline"
                   >
-                    Or view sample verified student profile →
+                    Already registered? Sign in →
                   </Link>
                 </div>
               </div>
@@ -215,16 +216,20 @@ export default function LandingPage() {
                   candidates with transparent fit justifications.
                 </p>
                 <Link
-                  href="/employer/opportunities/new"
+                  href="/signup/employer"
+                  id="landing-employer-signup-btn"
                   className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#1B365D] text-white font-semibold text-sm hover:bg-[#152a48] transition-colors shadow-xs"
                 >
-                  <span>Post Clinical Opportunity</span>
+                  <span>Register as Employer</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <div className="mt-3 text-center">
-                  <span className="text-xs text-stone-500">
-                    Custom domain weighting & tier filters
-                  </span>
+                  <Link
+                    href="/login"
+                    className="text-xs font-medium text-[#1B365D] hover:underline"
+                  >
+                    Already registered? Sign in →
+                  </Link>
                 </div>
               </div>
 
@@ -244,16 +249,20 @@ export default function LandingPage() {
                   readiness for national healthcare benchmarks.
                 </p>
                 <Link
-                  href="/admin/dashboard"
+                  href="/signup/admin"
+                  id="landing-admin-signup-btn"
                   className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#1B365D] text-white font-semibold text-sm hover:bg-[#152a48] transition-colors shadow-xs"
                 >
-                  <span>Access Admin Dashboard</span>
+                  <span>Register as Institution Admin</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <div className="mt-3 text-center">
-                  <span className="text-xs text-stone-500">
-                    Designed for a future AIIA pilot & NCISM outcomes
-                  </span>
+                  <Link
+                    href="/login"
+                    className="text-xs font-medium text-[#1B365D] hover:underline"
+                  >
+                    Already registered? Sign in →
+                  </Link>
                 </div>
               </div>
             </div>
@@ -423,22 +432,25 @@ export default function LandingPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              href="/student/assessment"
+              href="/signup/student"
+              id="cta-student-signup"
               className="px-6 py-3 rounded-xl bg-white text-[#1B365D] font-bold text-sm hover:bg-stone-100 transition-colors shadow-sm"
             >
-              1. Try Adaptive Assessment
+              1. Register as Student
             </Link>
             <Link
-              href="/student/profile"
+              href="/signup/employer"
+              id="cta-employer-signup"
               className="px-6 py-3 rounded-xl bg-sky-900/60 border border-sky-400/40 text-white font-bold text-sm hover:bg-sky-900 transition-colors"
             >
-              2. View Skill Profile
+              2. Register as Employer
             </Link>
             <Link
-              href="/employer/opportunities/new"
+              href="/login"
+              id="cta-login"
               className="px-6 py-3 rounded-xl bg-sky-900/60 border border-sky-400/40 text-white font-bold text-sm hover:bg-sky-900 transition-colors"
             >
-              3. Post Opportunity Form
+              3. Sign in
             </Link>
           </div>
         </div>

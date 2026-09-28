@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { GraduationCap, Briefcase, Building2, ShieldCheck } from 'lucide-react'
+import { ShieldCheck } from 'lucide-react'
 
 // MOCK DATA — for screenshot purposes only, will be replaced with real Supabase calls per Techspec.md/AppFlow.md in a later pass.
 
@@ -124,28 +124,21 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          {/* Role Quick Access Buttons */}
+          {/* Auth Quick Access Buttons */}
           <div className="flex items-center gap-2">
             <Link
-              href="/student/assessment"
+              href="/login"
+              id="navbar-login-btn"
               className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1.5 rounded-md bg-stone-100 text-[#1B365D] hover:bg-stone-200 border border-stone-300 transition-colors"
             >
-              <GraduationCap className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Student</span>
+              <span>Sign in</span>
             </Link>
             <Link
-              href="/employer/opportunities/new"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1.5 rounded-md bg-stone-100 text-[#1B365D] hover:bg-stone-200 border border-stone-300 transition-colors"
-            >
-              <Briefcase className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Employer</span>
-            </Link>
-            <Link
-              href="/admin/dashboard"
+              href="/"
+              id="navbar-register-btn"
               className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1.5 rounded-md bg-[#1B365D] text-white hover:bg-[#152a48] transition-colors shadow-xs"
             >
-              <Building2 className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Admin</span>
+              <span>Register</span>
             </Link>
           </div>
         </div>

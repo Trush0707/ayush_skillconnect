@@ -128,6 +128,17 @@ export default function EmployerOpportunitiesPage() {
 
   useEffect(() => {
     loadOpportunities()
+
+    function handleVisibilityChange() {
+      if (document.visibilityState === 'visible') {
+        loadOpportunities()
+      }
+    }
+
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+    }
   }, [])
 
   async function toggleStatus(oppId: string, currentStatus: 'open' | 'closed') {

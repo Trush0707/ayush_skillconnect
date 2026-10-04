@@ -4,7 +4,7 @@ import { useActionState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { login } from '@/app/actions/auth'
-import { ShieldCheck, GraduationCap, Briefcase, Building2, AlertCircle, Loader2 } from 'lucide-react'
+import { ShieldCheck, GraduationCap, Stethoscope, Building2, AlertCircle, Loader2 } from 'lucide-react'
 import { Suspense } from 'react'
 
 function LoginForm() {
@@ -152,7 +152,7 @@ function LoginForm() {
                 id="register-employer-link"
                 className="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-white border-2 border-stone-200 hover:border-[#1B365D] text-[#1B365D] transition-colors group"
               >
-                <Briefcase className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <Stethoscope className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 <span className="text-xs font-bold">Employer</span>
               </Link>
               <Link

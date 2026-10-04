@@ -9,22 +9,20 @@ import {
   Building2,
   MapPin,
   Clock,
-  Sparkles,
+  Target,
   CheckCircle2,
   AlertCircle,
   Loader2,
   RefreshCw,
   Search,
   Filter,
-  GraduationCap,
-  Briefcase,
-  ChevronRight,
   ShieldCheck,
 } from 'lucide-react'
 import { supabase } from '@/lib/supabase/client'
 
 interface StudentProfile {
   id: string
+  full_name: string | null
   discipline: string
   institution: string | null
   semester: number | null
@@ -116,6 +114,7 @@ export default function EmployerApplicantsPage(props: PageProps) {
           applied_at,
           student_profiles (
             id,
+            full_name,
             discipline,
             institution,
             semester,
@@ -171,6 +170,7 @@ export default function EmployerApplicantsPage(props: PageProps) {
   const filteredApplicants = useMemo(() => {
     return applicants.filter((app) => {
       const profile = app.student_profiles
+      const fullName = (profile?.full_name || '').toLowerCase()
       const discipline = profile?.discipline?.toLowerCase() || ''
       const institution = profile?.institution?.toLowerCase() || ''
       const reasons = (app.match_reasons || []).join(' ').toLowerCase()
@@ -178,6 +178,7 @@ export default function EmployerApplicantsPage(props: PageProps) {
 
       const matchesSearch =
         query === '' ||
+        fullName.includes(query) ||
         discipline.includes(query) ||
         institution.includes(query) ||
         reasons.includes(query)
@@ -309,7 +310,7 @@ export default function EmployerApplicantsPage(props: PageProps) {
           <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
           <input
             type="text"
-            placeholder="Search candidates by discipline, institution, or competency reasoning…"
+            placeholder="Search candidates by name, discipline, institution, or competency reasoning…"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-stone-200 focus:outline-hidden focus:ring-2 focus:ring-[#1B365D]/20 focus:border-[#1B365D]"
@@ -382,6 +383,9 @@ export default function EmployerApplicantsPage(props: PageProps) {
                   <div className="space-y-1.5">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="text-base font-bold text-[#1B365D]">
+                        {profile?.full_name?.trim() ? profile.full_name.trim() : 'Name not provided'}
+                      </span>
+                      <span className="text-xs px-2 py-0.5 rounded-md bg-stone-100 text-stone-700 border border-stone-200 font-medium">
                         {profile?.discipline || 'AYUSH Scholar'}
                       </span>
                       {profile?.institution && (
@@ -412,7 +416,7 @@ export default function EmployerApplicantsPage(props: PageProps) {
                           Match Score
                         </div>
                         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-sky-50 border border-sky-200">
-                          <Sparkles className="w-3.5 h-3.5 text-[#1B365D]" />
+                          <Target className="w-3.5 h-3.5 text-[#1B365D]" />
                           <span className="text-sm font-black text-[#1B365D]">{score}%</span>
                         </div>
                       </div>
@@ -426,7 +430,7 @@ export default function EmployerApplicantsPage(props: PageProps) {
                       <div className="relative">
                         <select
                           id={`status-${app.id}`}
-                          aria-label={`Status for candidate in ${profile?.discipline || 'AYUSH Scholar'}`}
+                          aria-label={`Status for candidate ${profile?.full_name || profile?.discipline || 'AYUSH Scholar'}`}
                           value={app.status}
                           disabled={isUpdating}
                           onChange={(e) =>

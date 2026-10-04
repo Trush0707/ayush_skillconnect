@@ -17,9 +17,9 @@ import {
   GraduationCap,
   Users,
   TrendingUp,
-  Sparkles,
   Info,
 } from 'lucide-react'
+
 
 // ---------------------------------------------------------------------------
 // Type matching the Route Handler payload:

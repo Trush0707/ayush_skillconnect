@@ -7,7 +7,7 @@ import {
   Building2,
   MapPin,
   Clock,
-  Sparkles,
+  Target,
   CheckCircle2,
   AlertCircle,
   Loader2,
@@ -15,12 +15,12 @@ import {
   Search,
   Filter,
   ArrowRight,
-  Briefcase,
-  Award,
+  BadgeCheck,
   ExternalLink,
   ChevronRight,
   Check,
 } from 'lucide-react'
+
 import { supabase } from '@/lib/supabase/client'
 
 interface RequiredSkill {
@@ -180,7 +180,7 @@ export default function StudentApplicationsPage() {
       case 'selected':
         return (
           <span className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-full bg-sky-100 text-[#1B365D] border border-sky-300">
-            <Award className="w-3 h-3 text-[#1B365D]" />
+            <BadgeCheck className="w-3 h-3 text-[#1B365D]" />
             Selected / Offered
           </span>
         )
@@ -387,7 +387,7 @@ export default function StudentApplicationsPage() {
                           Match Score
                         </div>
                         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-sky-50 border border-sky-200">
-                          <Sparkles className="w-3.5 h-3.5 text-[#1B365D]" />
+                          <Target className="w-3.5 h-3.5 text-[#1B365D]" />
                           <span className="text-sm font-black text-[#1B365D]">{score}%</span>
                         </div>
                       </div>

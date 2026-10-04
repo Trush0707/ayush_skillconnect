@@ -138,6 +138,9 @@ export default function NewOpportunityPage() {
       }
 
       setSuccess(true)
+      // router.refresh() forces Next.js to invalidate cached page renders so the
+      // newly posted opportunity appears immediately when navigating to the list.
+      router.refresh()
       setTimeout(() => { router.push('/employer/opportunities') }, 1200)
     })
   }

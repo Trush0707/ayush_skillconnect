@@ -29,11 +29,14 @@ Seed with all 12 domains before building anything else.
 CREATE TABLE student_profiles (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   auth_user_id UUID NOT NULL REFERENCES auth.users(id) UNIQUE,
+  full_name TEXT,                              -- student's display name; nullable for pre-existing accounts
   discipline TEXT NOT NULL CHECK (discipline IN ('Ayurveda','Yoga & Naturopathy','Unani','Siddha','Homoeopathy')),
   institution TEXT DEFAULT 'AIIA',
   semester INT,
   interests TEXT[]
 );
+-- Migration (run once against the live DB):
+-- ALTER TABLE student_profiles ADD COLUMN full_name TEXT;
 ALTER TABLE student_profiles ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "students read/write only their own profile"
   ON student_profiles FOR ALL TO authenticated

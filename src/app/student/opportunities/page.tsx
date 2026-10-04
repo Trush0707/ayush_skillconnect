@@ -3,7 +3,7 @@
 import { useEffect, useState, useMemo } from 'react'
 import Link from 'next/link'
 import {
-  Sparkles,
+  BadgeCheck,
   Search,
   Building2,
   MapPin,
@@ -14,7 +14,7 @@ import {
   ArrowRight,
   Filter,
   RefreshCw,
-  Award,
+  Target,
   Send,
   ExternalLink,
   ShieldCheck,
@@ -224,7 +224,7 @@ export default function StudentOpportunitiesPage() {
             href="/student/assessment"
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#1B365D] text-white text-xs font-bold hover:bg-[#152a48] transition-colors shadow-sm"
           >
-            <Sparkles className="w-4 h-4 text-sky-200" />
+            <BadgeCheck className="w-4 h-4 text-sky-200" />
             <span>Take Assessment</span>
           </Link>
         </div>
@@ -353,7 +353,7 @@ export default function StudentOpportunitiesPage() {
       {!loading && !error && opportunities.length === 0 && (
         <div className="bg-white rounded-2xl border border-stone-200 p-10 text-center shadow-xs">
           <div className="w-14 h-14 rounded-2xl bg-sky-50 text-[#1B365D] flex items-center justify-center mx-auto mb-4">
-            <Award className="w-7 h-7 text-[#1B365D]" />
+            <Target className="w-7 h-7 text-[#1B365D]" />
           </div>
           <h2 className="text-lg font-bold text-[#1B365D]">No Open Opportunities in Catalog Yet</h2>
           <p className="max-w-md mx-auto text-xs sm:text-sm text-stone-600 mt-1.5 leading-relaxed">
@@ -364,7 +364,7 @@ export default function StudentOpportunitiesPage() {
               href="/student/assessment"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1B365D] text-white text-xs font-bold hover:bg-[#152a48] transition-colors shadow-sm"
             >
-              <Sparkles className="w-4 h-4 text-sky-200" />
+              <BadgeCheck className="w-4 h-4 text-sky-200" />
               <span>Complete Adaptive Assessment Now</span>
             </Link>
           </div>

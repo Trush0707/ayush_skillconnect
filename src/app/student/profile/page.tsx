@@ -7,7 +7,7 @@ import {
   ArrowRight,
   ShieldCheck,
   GraduationCap,
-  Sparkles,
+  BadgeCheck,
   CheckCircle2,
   AlertCircle,
   RefreshCw,
@@ -766,7 +766,7 @@ export default function StudentProfilePage() {
         {/* ── Next Steps Quick Actions ── */}
         <div className="bg-white rounded-2xl border border-stone-200 p-5 sm:p-6 shadow-xs mb-8">
           <div className="flex items-center gap-2 mb-4">
-            <Sparkles className="w-5 h-5 text-[#1B365D]" />
+            <BadgeCheck className="w-5 h-5 text-[#1B365D]" />
             <h2 className="text-base font-bold text-[#1B365D]">Next Steps</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">

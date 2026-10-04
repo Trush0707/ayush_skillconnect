@@ -4,13 +4,13 @@ import { useActionState } from 'react'
 import Link from 'next/link'
 import { signupAdmin } from '@/app/actions/auth'
 import { Building2, AlertCircle, Loader2, ShieldCheck, CheckCircle2 } from 'lucide-react'
-import AlreadySignedIn, { useSessionCheck } from '@/components/AlreadySignedIn'
+import AlreadySignedIn, { useSessionCheck, SessionCheckLoader } from '@/components/AlreadySignedIn'
 
 export default function AdminSignupPage() {
   const [state, action, isPending] = useActionState(signupAdmin, null)
   const sessionState = useSessionCheck()
 
-  if (sessionState === null) return null
+  if (sessionState === null) return <SessionCheckLoader />
   if (sessionState !== false) return <AlreadySignedIn role={sessionState.role} email={sessionState.email} />
 
   return (
@@ -71,8 +71,7 @@ export default function AdminSignupPage() {
           <div className="bg-white rounded-2xl border border-stone-200 shadow-sm p-8">
             {/* MVP note */}
             <div className="mb-5 p-3 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 text-xs">
-              <strong>MVP note:</strong> Admin registration is email/password only for the pilot.
-              Institution-level provisioning is out of scope for SIH26044.
+              <strong>MVP note:</strong> Institution-level provisioning is out of scope for SIH26044.
             </div>
 
             <form action={action} className="space-y-5">
@@ -83,6 +82,25 @@ export default function AdminSignupPage() {
                   <span>{state.error}</span>
                 </div>
               )}
+
+              {/* Full Name */}
+              <div>
+                <label
+                  htmlFor="admin-fullname"
+                  className="block text-xs font-bold text-stone-700 mb-1.5 uppercase tracking-wide"
+                >
+                  Full Name
+                </label>
+                <input
+                  id="admin-fullname"
+                  name="full_name"
+                  type="text"
+                  required
+                  autoComplete="name"
+                  placeholder="e.g. Dr. Anand Sharma"
+                  className="w-full px-4 py-2.5 rounded-xl border border-stone-300 bg-[#FFFCF6] text-stone-900 text-sm placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#1B365D]/30 focus:border-[#1B365D] transition"
+                />
+              </div>
 
               {/* Email */}
               <div>

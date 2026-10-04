@@ -50,6 +50,7 @@ export async function signupStudent(
   _prevState: { error: string } | null,
   formData: FormData
 ): Promise<{ error: string } | null> {
+  const fullName = (formData.get('full_name') as string)?.trim()
   const email = (formData.get('email') as string)?.trim()
   const password = formData.get('password') as string
   const discipline = formData.get('discipline') as string
@@ -57,6 +58,10 @@ export async function signupStudent(
   const interests: string[] = rawInterests
     .map((item) => (typeof item === 'string' ? item.trim() : ''))
     .filter((item) => item.length > 0)
+
+  if (!fullName || fullName.length < 2) {
+    return { error: 'Full name is required (at least 2 characters).' }
+  }
 
   if (!email || !password || !discipline) {
     return { error: 'All fields are required.' }
@@ -79,6 +84,7 @@ export async function signupStudent(
     options: {
       data: {
         role: 'student',
+        full_name: fullName,
         discipline,
         interests,
       },
@@ -98,6 +104,7 @@ export async function signupStudent(
     .from('student_profiles')
     .insert({
       auth_user_id: authData.user.id,
+      full_name: fullName,
       discipline: discipline as Discipline,
       institution: 'AIIA',
       interests,
@@ -157,9 +164,14 @@ export async function signupEmployer(
   _prevState: { error: string } | null,
   formData: FormData
 ): Promise<{ error: string } | null> {
+  const fullName = (formData.get('full_name') as string)?.trim()
   const email = (formData.get('email') as string)?.trim()
   const password = formData.get('password') as string
   const organization = (formData.get('organization') as string)?.trim()
+
+  if (!fullName || fullName.length < 2) {
+    return { error: 'Full name is required (at least 2 characters).' }
+  }
 
   if (!email || !password || !organization) {
     return { error: 'All fields are required.' }
@@ -177,6 +189,7 @@ export async function signupEmployer(
     options: {
       data: {
         role: 'employer',
+        full_name: fullName,
         organization,
       },
     },
@@ -197,8 +210,13 @@ export async function signupAdmin(
   _prevState: { error: string } | null,
   formData: FormData
 ): Promise<{ error: string } | null> {
+  const fullName = (formData.get('full_name') as string)?.trim()
   const email = (formData.get('email') as string)?.trim()
   const password = formData.get('password') as string
+
+  if (!fullName || fullName.length < 2) {
+    return { error: 'Full name is required (at least 2 characters).' }
+  }
 
   if (!email || !password) {
     return { error: 'Email and password are required.' }
@@ -216,6 +234,7 @@ export async function signupAdmin(
     options: {
       data: {
         role: 'admin',
+        full_name: fullName,
       },
     },
   })

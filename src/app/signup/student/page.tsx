@@ -14,7 +14,7 @@ import {
   ArrowLeft,
   Check,
 } from 'lucide-react'
-import AlreadySignedIn, { useSessionCheck } from '@/components/AlreadySignedIn'
+import AlreadySignedIn, { useSessionCheck, SessionCheckLoader } from '@/components/AlreadySignedIn'
 
 const DISCIPLINES = [
   'Ayurveda',
@@ -34,6 +34,7 @@ export default function StudentSignupPage() {
   const sessionState = useSessionCheck()
 
   const [step, setStep] = useState<1 | 2>(1)
+  const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [discipline, setDiscipline] = useState('')
@@ -107,6 +108,10 @@ export default function StudentSignupPage() {
 
   function handleNextStep(e: React.MouseEvent) {
     e.preventDefault()
+    if (!fullName || fullName.trim().length < 2) {
+      setStep1Error('Please enter your full name (at least 2 characters).')
+      return
+    }
     if (!email || !email.includes('@')) {
       setStep1Error('Please enter a valid email address.')
       return
@@ -123,8 +128,8 @@ export default function StudentSignupPage() {
     setStep(2)
   }
 
-  // Still checking → render nothing (prevents layout flash)
-  if (sessionState === null) return null
+  // Still checking → show a loading spinner (prevents blank-screen stall for new users)
+  if (sessionState === null) return <SessionCheckLoader />
 
   // Session exists → show the intercept notice (hides the form entirely)
   if (sessionState !== false) return <AlreadySignedIn role={sessionState.role} email={sessionState.email} />
@@ -265,6 +270,30 @@ export default function StudentSignupPage() {
                     <span>{step1Error}</span>
                   </div>
                 )}
+
+                {/* Full Name */}
+                <div>
+                  <label
+                    htmlFor="student-fullname"
+                    className="block text-xs font-bold text-stone-700 mb-1.5 uppercase tracking-wide"
+                  >
+                    Full Name
+                  </label>
+                  <input
+                    id="student-fullname"
+                    name="full_name"
+                    type="text"
+                    autoComplete="name"
+                    required
+                    value={fullName}
+                    onChange={(e) => {
+                      setFullName(e.target.value)
+                      if (step1Error) setStep1Error(null)
+                    }}
+                    placeholder="e.g. Priya Sharma"
+                    className="w-full px-4 py-2.5 rounded-xl border border-stone-300 bg-[#FFFCF6] text-stone-900 text-sm placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#1B365D]/30 focus:border-[#1B365D] transition"
+                  />
+                </div>
 
                 {/* Email */}
                 <div>

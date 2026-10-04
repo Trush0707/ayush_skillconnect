@@ -18,7 +18,7 @@
 
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase/client'
-import { ShieldCheck, LogOut, Loader2 } from 'lucide-react'
+import { ShieldCheck, LogOut, Loader2, UserCheck } from 'lucide-react'
 import Link from 'next/link'
 
 // ---------------------------------------------------------------------------
@@ -46,6 +46,20 @@ export function useSessionCheck(): SessionState {
   }, [])
 
   return state
+}
+
+// ---------------------------------------------------------------------------
+// Loading skeleton — shown while session check is in-flight
+// ---------------------------------------------------------------------------
+export function SessionCheckLoader() {
+  return (
+    <div className="min-h-screen bg-[#FFFCF6] flex items-center justify-center">
+      <div className="flex flex-col items-center gap-3 text-stone-500">
+        <Loader2 className="w-8 h-8 animate-spin text-[#1B365D]" />
+        <span className="text-xs font-medium">Checking session…</span>
+      </div>
+    </div>
+  )
 }
 
 // ---------------------------------------------------------------------------
@@ -127,9 +141,9 @@ export default function AlreadySignedIn({ role, email }: AlreadySignedInProps) {
 
           {/* Notice card */}
           <div className="bg-white rounded-2xl border-2 border-amber-200 shadow-sm p-8 text-center">
-            {/* Amber shield icon */}
+            {/* Session notice icon — UserCheck (distinct from brand ShieldCheck) */}
             <div className="mx-auto w-14 h-14 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center mb-5">
-              <ShieldCheck className="w-7 h-7 text-amber-600" />
+              <UserCheck className="w-7 h-7 text-amber-600" />
             </div>
 
             <h1 className="text-xl font-black text-[#1B365D] tracking-tight mb-2">

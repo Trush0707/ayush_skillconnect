@@ -10,7 +10,7 @@ import {
   Circle,
   Loader2,
   ShieldAlert,
-  Sparkles,
+  BadgeCheck,
 } from 'lucide-react'
 import { supabase } from '@/lib/supabase/client'
 
@@ -343,7 +343,7 @@ function SavingState() {
           <Loader2 className="w-8 h-8 text-[#1B365D] animate-spin" />
         </div>
         <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-amber-400 flex items-center justify-center">
-          <Sparkles className="w-3 h-3 text-white" />
+          <BadgeCheck className="w-3 h-3 text-white" />
         </div>
       </div>
       <div className="text-center space-y-1">
@@ -583,7 +583,7 @@ function QuestionCard({
 
       {/* Footer */}
       <div className="border-t border-stone-100 bg-stone-50/70 px-6 py-3 flex items-center gap-2 text-xs text-stone-500">
-        <Sparkles className="w-3.5 h-3.5 text-[#1B365D] shrink-0" />
+        <BadgeCheck className="w-3.5 h-3.5 text-[#1B365D] shrink-0" />
         <span>
           Selecting an option{' '}
           {selectedOptionId ? (

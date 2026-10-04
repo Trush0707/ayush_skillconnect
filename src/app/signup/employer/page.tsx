@@ -3,14 +3,14 @@
 import { useActionState } from 'react'
 import Link from 'next/link'
 import { signupEmployer } from '@/app/actions/auth'
-import { Briefcase, AlertCircle, Loader2, ShieldCheck, CheckCircle2 } from 'lucide-react'
-import AlreadySignedIn, { useSessionCheck } from '@/components/AlreadySignedIn'
+import { Stethoscope, AlertCircle, Loader2, ShieldCheck, CheckCircle2 } from 'lucide-react'
+import AlreadySignedIn, { useSessionCheck, SessionCheckLoader } from '@/components/AlreadySignedIn'
 
 export default function EmployerSignupPage() {
   const [state, action, isPending] = useActionState(signupEmployer, null)
   const sessionState = useSessionCheck()
 
-  if (sessionState === null) return null
+  if (sessionState === null) return <SessionCheckLoader />
   if (sessionState !== false) return <AlreadySignedIn role={sessionState.role} email={sessionState.email} />
 
   return (
@@ -53,7 +53,7 @@ export default function EmployerSignupPage() {
 
             {/* Role badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-stone-100 border border-stone-300 text-stone-800 text-xs font-bold mb-3">
-              <Briefcase className="w-4 h-4" />
+              <Stethoscope className="w-4 h-4" />
               Registering as: AYUSH Employer (Hospital / R&amp;D)
             </div>
             <h1 className="text-2xl font-black text-[#1B365D] tracking-tight">
@@ -77,6 +77,25 @@ export default function EmployerSignupPage() {
                   <span>{state.error}</span>
                 </div>
               )}
+
+              {/* Full Name */}
+              <div>
+                <label
+                  htmlFor="employer-fullname"
+                  className="block text-xs font-bold text-stone-700 mb-1.5 uppercase tracking-wide"
+                >
+                  Full Name
+                </label>
+                <input
+                  id="employer-fullname"
+                  name="full_name"
+                  type="text"
+                  required
+                  autoComplete="name"
+                  placeholder="e.g. Dr. Rajesh Verma"
+                  className="w-full px-4 py-2.5 rounded-xl border border-stone-300 bg-[#FFFCF6] text-stone-900 text-sm placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#1B365D]/30 focus:border-[#1B365D] transition"
+                />
+              </div>
 
               {/* Organization name */}
               <div>
@@ -150,7 +169,7 @@ export default function EmployerSignupPage() {
                   </>
                 ) : (
                   <>
-                    <Briefcase className="w-4 h-4" />
+                    <Stethoscope className="w-4 h-4" />
                     Create Employer Account
                   </>
                 )}

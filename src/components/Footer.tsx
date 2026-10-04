@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ShieldCheck, HelpCircle, FileText } from 'lucide-react'
+import { ShieldCheck, Layers, FileText } from 'lucide-react'
 
 // MOCK DATA — for screenshot purposes only, will be replaced with real Supabase calls per Techspec.md/AppFlow.md in a later pass.
 
@@ -73,7 +73,7 @@ export default function Footer() {
                 </span>
               </li>
               <li className="flex items-center gap-1.5">
-                <HelpCircle className="w-3.5 h-3.5 text-sky-300" />
+                <Layers className="w-3.5 h-3.5 text-sky-300" />
                 <span className="hover:text-white cursor-pointer">
                   Assessment Evidence Tiers (0–3)
                 </span>

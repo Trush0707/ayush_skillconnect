@@ -1,17 +1,17 @@
 import Link from 'next/link'
 import {
   GraduationCap,
-  Briefcase,
+  Stethoscope,
   Building2,
   ArrowRight,
   ShieldCheck,
   CheckCircle2,
-  Activity,
+  Target,
   FileCheck,
   BarChart3,
-  Award,
+  Layers,
   ChevronRight,
-  Sparkles,
+  Brain,
 } from 'lucide-react'
 
 // MOCK DATA — for screenshot purposes only, will be replaced with real Supabase calls per Techspec.md/AppFlow.md in a later pass.
@@ -28,7 +28,7 @@ const MOCK_STATS = [
     value: '0–5',
     label: 'Pilot Placements',
     subtext: 'Target initial clinical postings',
-    icon: Briefcase,
+    icon: Stethoscope,
   },
   {
     id: 'pilot-institution',
@@ -42,7 +42,7 @@ const MOCK_STATS = [
     value: '84%',
     label: 'Avg Skill Match',
     subtext: 'Deterministic match baseline',
-    icon: Activity,
+    icon: Target,
   },
 ]
 
@@ -76,7 +76,7 @@ const MOCK_CORE_FEATURES = [
     description:
       'Interactive state machine evaluations with dynamic question branching. Different diagnostic decisions lead to specialized case scenarios, reflecting true clinical acumen.',
     badge: 'Branching Engine',
-    icon: Sparkles,
+    icon: Brain,
     points: [
       'Dynamic question tree per AYUSH discipline',
       'Designed to show skill domain score aggregation',
@@ -148,7 +148,7 @@ export default function LandingPage() {
             {/* Core Differentiator Callout Box */}
             <div className="mt-8 p-4 rounded-xl bg-white border border-stone-200/90 shadow-xs flex items-start gap-3.5">
               <div className="w-9 h-9 rounded-lg bg-[#1B365D] text-white flex items-center justify-center shrink-0">
-                <Award className="w-5 h-5 text-sky-200" />
+                <Layers className="w-5 h-5 text-sky-200" />
               </div>
               <div className="text-xs sm:text-sm text-stone-700">
                 <span className="font-bold text-[#1B365D]">Verified Multi-Tier Evidence Framework: </span>
@@ -203,7 +203,7 @@ export default function LandingPage() {
               {/* Employer Entry */}
               <div className="group relative bg-white rounded-2xl border-2 border-stone-200 p-6 shadow-sm hover:border-[#1B365D] hover:shadow-md transition-all">
                 <div className="w-12 h-12 rounded-xl bg-sky-50 text-[#1B365D] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                  <Briefcase className="w-6 h-6 text-[#1B365D]" />
+                  <Stethoscope className="w-6 h-6 text-[#1B365D]" />
                 </div>
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="text-xl font-bold text-[#1B365D]">AYUSH Employer</h3>
